@@ -1,4 +1,7 @@
 from django.db import models
+from django.conf import settings
+
+from .services.qrcode import generate_qrcode
 
 
 class Meter(models.Model):
@@ -15,6 +18,10 @@ class Meter(models.Model):
     verification_interval = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def get_qrcode(self):
+        url = f'{settings.FRONTEND_URL}/{self.uuid}'
+        return generate_qrcode(url)
 
 
 class MeterVerification(models.Model):
