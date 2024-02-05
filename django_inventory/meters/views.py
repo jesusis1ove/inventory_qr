@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .serializers import MeterSerializer, MeterCreateSerializer, MeterUpdateSerializer
+from .serializers import MeterSerializer
 from .models import Meter
 
 
@@ -13,10 +13,6 @@ class MeterViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly, ]
 
     def get_serializer_class(self):
-        if self.action in ('update', 'partial_update'):
-            return MeterUpdateSerializer
-        elif self.action in ('create', ):
-            return MeterCreateSerializer
         return MeterSerializer
 
     @action(detail=True, url_path='qr', methods=['get'])

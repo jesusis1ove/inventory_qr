@@ -12,6 +12,7 @@ class Meter(models.Model):
     )
     uuid = models.CharField(max_length=36, primary_key=True, unique=True)
     name = models.CharField(max_length=255)
+    code = models.PositiveIntegerField()
     type = models.CharField(max_length=255)
     direction = models.CharField(choices=DIRECTION_TYPES, max_length=2, null=True, blank=True)
     center_distance = models.PositiveIntegerField(default=0)
@@ -27,4 +28,10 @@ class Meter(models.Model):
 class MeterVerification(models.Model):
     meter = models.ForeignKey(Meter, on_delete=models.CASCADE)
     date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class MeterAddress(models.Model):
+    meter = models.ForeignKey(Meter, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
