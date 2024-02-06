@@ -1,6 +1,5 @@
 import BarMenu from "./components/BarMenu";
 import Content from "./components/Content";
-import Header from "./components/Content/Header";
 import { useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
