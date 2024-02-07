@@ -14,6 +14,7 @@ const ComponentHeader = styled(Center).attrs(() => ({
 const Title = styled.h2`
   margin: 0.5rem 0;
 `;
+
 const SubTitle = styled.span`
   color: gray;
 `;

@@ -11,5 +11,6 @@ export const InlineBundle = styled.div`
   gap: ${(props) => props.gutter};
   justify-content: ${(props) =>
     justifySchema[props.justify] ?? justifySchema["end"]};
-  align-items: ${(props) => justifySchema[props.align] ?? justifySchema["center"]};
+  align-items: ${(props) =>
+    justifySchema[props.align] ?? justifySchema["center"]};
 `;

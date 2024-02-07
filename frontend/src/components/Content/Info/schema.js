@@ -23,7 +23,7 @@ const Test = styled(Pad).attrs(() => ({
   color: gray;
   flex-direction: column;
 `;
-export default function Schema({ name, info,image }) {
+export default function Schema({ name, info, image }) {
   return (
     <Test>
       <Item>
