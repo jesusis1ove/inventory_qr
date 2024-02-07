@@ -1,1 +1,1 @@
-export const backend = 'http://localhost:8000/api'
+export const backend =process.env.BACKEND_URL;

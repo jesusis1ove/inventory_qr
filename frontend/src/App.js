@@ -7,12 +7,14 @@ function App() {
   const { uuid } = useParams();
   const location = useLocation();
   let navigate = useNavigate();
-  console.log(location);
+
   useEffect(() => {
-    if (location.pathname === "/") {
+    localStorage.setItem("uuid", uuid);
+    if (location.pathname === "/" && uuid) {
       navigate(`meters/${uuid}`);
     }
   }, []);
+
   return (
     <div className="App">
       <BarMenu />

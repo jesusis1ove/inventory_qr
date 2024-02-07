@@ -38,15 +38,13 @@ const SettingPane = styled(Pad).attrs(() => ({
 export default function Content() {
   const { uuid } = useParams();
   const { data: meterById, isLoading } = useFetchMeterByIdQuery(uuid);
-  console.log(uuid);
-  console.log(meterById);
 
   return (
     <ContentArea>
       <ContentCenter>
         <SettingPane>
           {isLoading ? (
-            <h3>Loading</h3>
+            <h3>Загрузка данных</h3>
           ) : (
             <React.Fragment>
               <Header meterById={meterById} />
