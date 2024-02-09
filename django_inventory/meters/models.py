@@ -12,7 +12,7 @@ class Meter(models.Model):
     )
     uuid = models.CharField(max_length=36, primary_key=True, unique=True)
     name = models.CharField(max_length=255)
-    code = models.PositiveIntegerField()
+    code = models.CharField(max_length=255, null=True, blank=True)
     type = models.CharField(max_length=255)
     direction = models.CharField(choices=DIRECTION_TYPES, max_length=2, null=True, blank=True)
     center_distance = models.PositiveIntegerField(default=0)
