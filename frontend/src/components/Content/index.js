@@ -7,7 +7,6 @@ import Info from "./Info";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
 import { useFetchMeterByIdQuery } from "../../redux/services/meters";
-import { logDOM } from "@testing-library/react";
 
 const ContentArea = styled(Pad).attrs(() => ({
   padding: "1rem 0",
