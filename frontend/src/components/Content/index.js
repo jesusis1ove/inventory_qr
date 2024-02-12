@@ -7,6 +7,7 @@ import Info from "./Info";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
 import { useFetchMeterByIdQuery } from "../../redux/services/meters";
+import { logDOM } from "@testing-library/react";
 
 const ContentArea = styled(Pad).attrs(() => ({
   padding: "1rem 0",
@@ -37,7 +38,7 @@ const SettingPane = styled(Pad).attrs(() => ({
 
 export default function Content() {
   const { uuid } = useParams();
-  const { data: meterById, isLoading } = useFetchMeterByIdQuery(uuid);
+  const { data: meterById, isLoading, error } = useFetchMeterByIdQuery(uuid);
 
   return (
     <ContentArea>
@@ -45,6 +46,8 @@ export default function Content() {
         <SettingPane>
           {isLoading ? (
             <h3>Загрузка данных</h3>
+          ) : error?.status === 404 || error?.status === "FETCH_ERROR" ? (
+            <h3>Средство измерения не найдено</h3>
           ) : (
             <React.Fragment>
               <Header meterById={meterById} />
