@@ -7,9 +7,8 @@ export const metersAPI = createApi({
   endpoints: (build) => ({
     fetchAllMeters: build.query({
       query: () => ({
-        url: "meters/",
+        url: "meters",
         headers: {
-          Authorization: "Bearer",
           "Content-type": "application/json",
         },
       }),
